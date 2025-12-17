@@ -183,6 +183,12 @@ function showTab(tabId) {
 		<span class="material-symbols-outlined text-lg">logout</span>
 		Đăng xuất
             </button>
+			<script>
+function logout() {
+  localStorage.clear(); // hoặc sessionStorage.clear()
+  window.location.replace("login.html");
+}
+</script>
         </div>
     </aside>
 
