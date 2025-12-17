@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<script>
-if (!localStorage.getItem("loggedIn")) {
-    window.location.href = "login.html";
-}
-</script>
+	 <!-- ✅ CHECK LOGIN -->
+  <script>
+    if (!sessionStorage.getItem("loggedIn")) {
+      window.location.replace("login.html");
+    }
+  </script>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Viettel Post</title>
@@ -178,14 +179,17 @@ function showTab(tabId) {
             <button class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 text-gray-700">
                 <span class="material-symbols-outlined text-lg">notifications</span>
                 Thông báo hệ thống
-            </button>
-            <button class="flex items-center gap-3 rounded-lg px-3 py-2 text-[#4c669a] hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800" href="#">
-		<span class="material-symbols-outlined text-lg">logout</span>
-		Đăng xuất
-            </button>
-			<script>
+            <button
+  type="button"
+  onclick="logout()"
+  class="flex items-center gap-3 rounded-lg px-3 py-2 text-[#4c669a] hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+>
+  <span class="material-symbols-outlined text-lg">logout</span>
+  Đăng xuất
+</button>
+<script>
 function logout() {
-  localStorage.clear(); // hoặc sessionStorage.clear()
+  sessionStorage.clear(); // ✅ ĐÚNG storage
   window.location.replace("login.html");
 }
 </script>
