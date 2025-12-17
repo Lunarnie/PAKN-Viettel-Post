@@ -85,7 +85,7 @@
 </div>
 <!-- Form Content -->
 <div class="p-8 pt-6">
-<form class="flex flex-col gap-5" onsubmit="handleLogin(event)">
+<form class="flex flex-col gap-5" >
 <!-- Username Field -->
 <div class="flex flex-col gap-2">
 <label class="text-text-main text-sm font-semibold leading-normal" for="username">
@@ -122,9 +122,13 @@
                             </a>
 </div>
 <!-- Submit Button -->
-<button class="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white shadow-md shadow-red-500/20" type="submit">
-<span class="text-base font-bold tracking-wide">ĐĂNG NHẬP</span>
-<span class="material-symbols-outlined text-[20px]">login</span>
+<button
+  type="button"
+  onclick="handleLogin()"
+  class="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white shadow-md shadow-red-500/20"
+>
+  <span class="text-base font-bold tracking-wide">ĐĂNG NHẬP</span>
+  <span class="material-symbols-outlined text-[20px]">login</span>
 </button>
 </form>
 <!-- Footer Links within card -->
@@ -167,7 +171,7 @@ function handleLogin(e) {
     window.location.href = "index.html";
 }
 </script>
-
 </html>
+
 
 
