@@ -149,7 +149,7 @@
 </body>
 <script>
 function handleLogin(e) {
-    e.preventDefault(); // chặn reload trang
+    e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -159,12 +159,12 @@ function handleLogin(e) {
         return;
     }
 
-   // ✅ LƯU TRẠNG THÁI ĐĂNG NHẬP (CHỈ TỒN TẠI TRONG TAB)
     sessionStorage.setItem("loggedIn", "true");
     sessionStorage.setItem("username", username);
-    // chuyển sang giao diện chính
-    window.location.href = "index.html";
+
+    window.location.replace("index.html");
 }
 </script>
 
 </html>
+
