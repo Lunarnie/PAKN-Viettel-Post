@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
+<script>
+if (!localStorage.getItem("loggedIn")) {
+    window.location.replace("login.html");
+}
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Trang Chủ Đăng Nhập/Đăng Ký - Viettel Post</title>
@@ -85,7 +90,7 @@
 </div>
 <!-- Form Content -->
 <div class="p-8 pt-6">
-<form class="flex flex-col gap-5" >
+<form class="flex flex-col gap-5" onsubmit="handleLogin(event)">
 <!-- Username Field -->
 <div class="flex flex-col gap-2">
 <label class="text-text-main text-sm font-semibold leading-normal" for="username">
@@ -122,13 +127,9 @@
                             </a>
 </div>
 <!-- Submit Button -->
-<button
-  id="loginBtn"
-  type="button"
-  class="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white shadow-md shadow-red-500/20"
->
-  <span class="text-base font-bold tracking-wide">ĐĂNG NHẬP</span>
-  <span class="material-symbols-outlined text-[20px]">login</span>
+<button class="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white shadow-md shadow-red-500/20" type="submit">
+<span class="text-base font-bold tracking-wide">ĐĂNG NHẬP</span>
+<span class="material-symbols-outlined text-[20px]">login</span>
 </button>
 </form>
 <!-- Footer Links within card -->
@@ -149,29 +150,27 @@
 </div>
 </main>
 </div>
-<script>
-document.getElementById("loginBtn").addEventListener("click", function () {
-  alert("JS ĐÃ CHẠY");
-
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (!username || !password) {
-    alert("Thiếu thông tin");
-    return;
-  }
-
-  sessionStorage.setItem("loggedIn", "true");
-  window.location.replace("index.html");
-});
-</script>
 
 </body>
 
+<script>
+function handleLogin(e) {
+    e.preventDefault(); // chặn reload trang
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+        alert("Vui lòng nhập đầy đủ thông tin đăng nhập");
+        return;
+    }
+
+    // ===== DEMO LOGIN (sau này nối backend) =====
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", username);
+
+    // chuyển sang giao diện chính
+    window.location.href = "index.html";
+}
+</script>
 </html>
-
-
-
-
-
-
