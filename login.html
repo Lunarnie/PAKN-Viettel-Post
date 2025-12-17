@@ -150,9 +150,7 @@
 </main>
 </div>
 <script>
-function handleLogin(e) {
-    e.preventDefault(); // chặn reload trang
-
+function handleLogin() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
 
@@ -161,17 +159,19 @@ function handleLogin(e) {
         return;
     }
 
-    // ===== DEMO LOGIN (sau này nối backend) =====
-    localStorage.setItem("loggedIn", "true");
-    localStorage.setItem("username", username);
+    // ✅ DÙNG sessionStorage (ĐÚNG VỚI INDEX)
+    sessionStorage.setItem("loggedIn", "true");
+    sessionStorage.setItem("username", username);
 
-    // chuyển sang giao diện chính
-    window.location.href = "index.html";
+    // ✅ CHUYỂN TRANG AN TOÀN
+    window.location.replace("index.html");
 }
 </script>
+
 </body>
 
 </html>
+
 
 
 
