@@ -150,27 +150,26 @@
 </main>
 </div>
 <script>
-function handleLogin() {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+document.getElementById("loginBtn").addEventListener("click", function () {
+  alert("JS ĐÃ CHẠY");
 
-    if (!username || !password) {
-        alert("Vui lòng nhập đầy đủ thông tin đăng nhập");
-        return;
-    }
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    // ✅ DÙNG sessionStorage (ĐÚNG VỚI INDEX)
-    sessionStorage.setItem("loggedIn", "true");
-    sessionStorage.setItem("username", username);
+  if (!username || !password) {
+    alert("Thiếu thông tin");
+    return;
+  }
 
-    // ✅ CHUYỂN TRANG AN TOÀN
-    window.location.replace("index.html");
-}
+  sessionStorage.setItem("loggedIn", "true");
+  window.location.replace("index.html");
+});
 </script>
 
 </body>
 
 </html>
+
 
 
 
