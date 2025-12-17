@@ -149,7 +149,7 @@
 </body>
 <script>
 function handleLogin(e) {
-    e.preventDefault();
+    e.preventDefault(); // chặn reload trang
 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -159,12 +159,15 @@ function handleLogin(e) {
         return;
     }
 
-    sessionStorage.setItem("loggedIn", "true");
-    sessionStorage.setItem("username", username);
+    // ===== DEMO LOGIN (sau này nối backend) =====
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", username);
 
-    window.location.replace("index.html");
+    // chuyển sang giao diện chính
+    window.location.href = "index.html";
 }
 </script>
 
 </html>
+
 
