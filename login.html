@@ -159,12 +159,12 @@ function handleLogin(e) {
         return;
     }
 
-    // ===== DEMO LOGIN (sau này nối backend) =====
-    localStorage.setItem("loggedIn", "true");
-    localStorage.setItem("username", username);
-
+   // ✅ LƯU TRẠNG THÁI ĐĂNG NHẬP (CHỈ TỒN TẠI TRONG TAB)
+    sessionStorage.setItem("loggedIn", "true");
+    sessionStorage.setItem("username", username);
     // chuyển sang giao diện chính
     window.location.href = "index.html";
 }
 </script>
+
 </html>
